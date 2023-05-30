@@ -1,6 +1,5 @@
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +9,45 @@ public class Main {
         String file2Name = "src/two.txt";
 //        writeStringInFileWithFileOutputStream(text, fileName);
 //        readDataFromFileWithFileInputStream(fileName);
-        readFromOneAndWriteToTwo(fileName,file2Name);
+//        readFromOneAndWriteToTwo(fileName,file2Name);
+//        outputInFileFileWriter(fileName, text);
+//        fileReaderBySymbols(fileName);
+        fileReaderWithBuffer(fileName);
+    }
+    public static void fileReaderWithBuffer(String fileName) {
+        try (FileReader reader = new FileReader(fileName)){
+            char[] buf = new char[256];
+            int c;
+            while ((c = reader.read(buf)) > 0) {
+//                System.out.println(c);
+                if (c < 256) {
+                    buf = Arrays.copyOf(buf, c);
+                }
+                System.out.print(buf);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public static void fileReaderBySymbols(String fileName) {
+        try (FileReader reader = new FileReader(fileName)){
+            int c;
+            while ((c = reader.read()) != -1) {
+                System.out.print((char) c);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public static void outputInFileFileWriter(String fileName, String text) {
+        try(FileWriter writer = new FileWriter(fileName, true)){
+//            writer.append('\n');
+            writer.write(text);
+            writer.append('\n');
+//            writer.append('E');
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
     public static void writeStringInFileWithFileOutputStream(String text, String file) {
         try (FileOutputStream fos = new FileOutputStream(file)){
