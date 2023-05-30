@@ -12,7 +12,16 @@ public class Main {
 //        readFromOneAndWriteToTwo(fileName,file2Name);
 //        outputInFileFileWriter(fileName, text);
 //        fileReaderBySymbols(fileName);
-        fileReaderWithBuffer(fileName);
+//        fileReaderWithBuffer(fileName);
+        fromConsoleToFile(file2Name);
+    }
+    public static void fromConsoleToFile(String filename) {
+        // работает только при запуске программы из командной строки
+        Console console = System.console();
+        if (console != null) {
+            String line = console.readLine("Vvedite text: ");
+            outputInFileFileWriter(filename, line);
+        }
     }
     public static void fileReaderWithBuffer(String fileName) {
         try (FileReader reader = new FileReader(fileName)){
