@@ -9,6 +9,11 @@ public class Human {
         this.phoneNum = phoneNum;
         this.profession = profession;
     }
+
+    @Override
+    public String toString() {
+        return this.name + " " + this.age + " " + this.phoneNum + " " + this.profession;
+    }
 }
 enum Profession {
     DOCTOR,
@@ -16,5 +21,6 @@ enum Profession {
     TEACHER,
     POLICEMAN,
     LAWYER,
-    ACTOR
+    ACTOR,
+    NOPE
 }

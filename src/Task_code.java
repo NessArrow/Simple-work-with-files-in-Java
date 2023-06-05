@@ -47,15 +47,22 @@ public class Task_code {
         humans.forEach(System.out::println);
 
     }
+    public static void ofw(String line) {
+        for (int i = 0; i < line.length(); i++) {
+            System.out.print(line.indexOf(i) + " ");
+            System.out.println((int) line.indexOf(i));
+        }
+    }
     public static List <Human> humansFromFileToList(String fileName){
         List <Human> humans = new ArrayList<>();
 
-        try (FileReader fileReader = new FileReader(fileName)){
+            try (FileReader fileReader = new FileReader(fileName)){
             int c;
             StringBuilder tmp = new StringBuilder();
             while ((c = fileReader.read()) != -1) {
+//                System.out.printf("%c %d\n", c, c);
                 if (c == 10) {
-                    humans.add(humanFromString(tmp.toString()));
+                    if (!tmp.isEmpty()) humans.add(humanFromString(tmp.toString()));
                     tmp = new StringBuilder();
                 } else {
                     tmp.append((char) c);
@@ -67,15 +74,41 @@ public class Task_code {
 
         return humans;
     }
-    public static Human parseStringByRegularIntoHuman(String line) {
-        Pattern pattern = Pattern.compile("");
-        Matcher matcher = pattern.matcher(line);
-    }
     public static Human humanFromString (String line) {
+//        int tab = 9;
+//        int space = 32;
 //        System.out.println(line);
-        String[] partsOfHuman = new String[5];
-        partsOfHuman = line.split("\t");
-        Arrays.stream(partsOfHuman).forEach(System.out::println);
+//        List <String> partsOfHuman = new ArrayList<>();
+        String[] partsOfHuman = new String[4];
+//        Pattern pattern = Pattern.compile("\\w+");
+//        Matcher matcher = pattern.matcher(line);
+//        while (matcher.find()) {
+//            partsOfHuman.add(line.substring(matcher.start(), matcher.end()));
+//        }
+//        partsOfHuman.forEach(System.out::println);
+        partsOfHuman = line.split("[\\s\t]+");
+//        int j = 0;
+//        char letter = 0;
+//        String tmp = "";
+//        for (int i = 0; i < line.length(); i++) {
+//            letter = line.charAt(i);
+//            if (letter == 9 || letter == 32) {
+//                if (line.indexOf(i-1) == letter) {
+//                    tmp = "";
+//                } else {
+//                    partsOfHuman[j++] = tmp;
+//                    tmp = "";
+//                }
+//            } else {
+//                tmp += (char)letter;
+//            }
+//            if (i == line.length() - 1) {
+//                partsOfHuman[j] = tmp;
+//            }
+//        }
+//        Arrays.stream(partsOfHuman).forEach(System.out::println);
+//        Human human = new Human(partsOfHuman.get(0), Integer.parseInt(partsOfHuman.get(1)), partsOfHuman.get(2), strToProfession(partsOfHuman.get(3)));
+//        return human;
         return new Human(partsOfHuman[0], Integer.parseInt(partsOfHuman[1]),partsOfHuman[2],strToProfession(partsOfHuman[3]));
     }
     public static Profession strToProfession(String line) {
@@ -87,6 +120,7 @@ public class Task_code {
             case "policeman" -> profession = Profession.POLICEMAN;
             case "lawyer" -> profession = Profession.LAWYER;
             case "actor" -> profession = Profession.ACTOR;
+            default -> profession = Profession.NOPE;
         }
         return profession;
     }
