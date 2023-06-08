@@ -1,0 +1,15 @@
+
+Amina   27  582-139 engineer
+Amity   14  401-593 actor
+Andy    32  491-139 teacher
+Bob     39  319-319 policeman
+Bryan   13  301-491 lawyer
+Henry   30  942-138 teacher
+Kate    67  591-950 teacher
+Max 36  483-219 engineer
+Michael 42  489-810 actor
+Roger   10  481-194 lawyer
+Sabina  73  391-131 policeman
+Sandy	28	432-493	doctor
+Sarah   49  940-194 doctor
+Tiffany 41  491-489 teacher

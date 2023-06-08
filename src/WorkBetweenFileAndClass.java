@@ -1,8 +1,6 @@
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class WorkBetweenFileAndClass {
@@ -200,4 +198,39 @@ public class WorkBetweenFileAndClass {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Сортирует файл через сортировку листа, в последствии можно добавить
+     * методу в параметры компаратор и сортировать как потребуется, по итогу
+     * создается новый сортированный файл с окончанием "_sorted"
+     */
+    public static void sortFileByAlphabet(String fileName) throws IOException{
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        ArrayList <String> list = new ArrayList<>();
+        String line = "";
+
+        while ((line = reader.readLine()) != null) {
+            list.add(line);
+        }
+        reader.close();
+        Collections.sort(list);
+
+        FileWriter writer = new FileWriter(newFileName(fileName, "_sorted"));
+        for(String s : list) {
+            writer.write(s);
+            writer.write("\r\n");
+        }
+        writer.close();
+    }
+
+    /**
+     * Возвращает новое имя файла с добавочной частью
+     */
+    public static String newFileName(String oldFileName, String addition) {
+        String path = oldFileName.substring(0, oldFileName.lastIndexOf('/') + 1);
+        String extension = oldFileName.substring(oldFileName.indexOf('.'));
+        String name = oldFileName.substring(oldFileName.indexOf('/') + 1, oldFileName.indexOf('.'));
+        return path + name + addition + extension;
+    }
+
 }

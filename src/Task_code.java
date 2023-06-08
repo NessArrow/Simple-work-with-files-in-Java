@@ -1,11 +1,5 @@
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,9 +32,16 @@ public class Task_code {
     поиск по регулярному выражению
     чтобы поиск шел по определенному столбцу и весь этот столбец записывать в массив
      */
-    public static void main(String[] args) {
-        String fileName = "src/test.txt";
+    public static void main(String[] args) throws IOException {
+        String fileName = "src/peoples.txt";
 //        Scanner scanner = new Scanner(System.in);
 //        String line = scanner.nextLine();
     }
+    public static void deleteLine(String fileName, String delLine) {
+
+    }
+    // В последствии можно передавать в параметры компаратор и сортировать как нужно
+
+
+
 }
