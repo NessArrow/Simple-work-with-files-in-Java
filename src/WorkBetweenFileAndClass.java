@@ -233,4 +233,33 @@ public class WorkBetweenFileAndClass {
         return path + name + addition + extension;
     }
 
+
+    /**
+     * Ищет в файле строку и удаляет ее
+     */
+    public static void delLine(String fileName, String delLine) {
+        ArrayList<String> list = new ArrayList<>();
+        String tmp;
+        try (RandomAccessFile file = new RandomAccessFile(fileName, "rw")) {
+            while ((tmp = file.readLine()) != null) {
+                if (!tmp.equals(delLine)) {
+                    list.add(tmp);
+                }
+            }
+            file.setLength(0);
+            for (String s : list) {
+                file.write(s.getBytes());
+                file.write("\r\n".getBytes());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        /*
+        Считать строку, сравнить с искомой, если не подходит, записываем в лист, до конца файла
+        Очищаем файл, записываем данные из листа
+         */
+
+    }
 }

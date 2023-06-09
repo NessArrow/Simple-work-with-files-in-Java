@@ -33,15 +33,8 @@ public class Task_code {
     чтобы поиск шел по определенному столбцу и весь этот столбец записывать в массив
      */
     public static void main(String[] args) throws IOException {
-        String fileName = "src/peoples.txt";
+        String fileName = "src/test.txt";
 //        Scanner scanner = new Scanner(System.in);
 //        String line = scanner.nextLine();
     }
-    public static void deleteLine(String fileName, String delLine) {
-
-    }
-    // В последствии можно передавать в параметры компаратор и сортировать как нужно
-
-
-
 }

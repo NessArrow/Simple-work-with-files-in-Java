@@ -1,11 +1,13 @@
-
-
-
- 2 KOGOTO
-CHTOTO12345
-CHTOTOCHTOTOKOGOTOKOGOTOKOGOTOKOGOTO
-KOGOTOo thQWERTYree two one
-be CHTOTObe be be be be
-testtest
-text
-tut
+Sandy	28	432-493	doctor
+Max 36  483-219 engineer
+Bob     39  319-319 policeman
+Sabina  73  391-131 policeman
+Andy    32  491-139 teacher
+Bryan   13  301-491 lawyer
+Michael 42  489-810 actor
+Amity   14  401-593 actor
+Sarah   49  940-194 doctor
+Roger   10  481-194 lawyer
+Amina   27  582-139 engineer
+Tiffany 41  491-489 teacher
+Kate    67  591-950 teacher
